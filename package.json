@@ -1,0 +1,28 @@
+{
+  "name": "blorrent-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancisLennon17/blorrent-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrancisLennon17/blorrent-bot/issues"
+  },
+  "homepage": "https://github.com/FrancisLennon17/blorrent-bot#readme",
+  "dependencies": {
+    "deluge": "^1.7.1",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7",
+    "num-words": "^1.2.2"
+  }
+}
