@@ -1,0 +1,33 @@
+version: '3.4'
+services:
+  blorrentbot:
+    build:
+      context: .
+      dockerfile: DockerFile
+      network: bridge
+    container_name: blorrent-bot
+  deluge:
+    image: sgtsquiggs/deluge-openvpn
+    container_name: deluge
+    ports:
+      - "8112:8112"
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - UMASK_SET=022
+      - TZ=Europe/London
+      - OPENVPN_PROVIDER=CUSTOM
+      - OPENVPN_USERNAME=
+      - OPENVPN_PASSWORD=
+      - LOCAL_NETWORK=192.168.0.0/24
+      - CREATE_TUN_DEVICE=true
+    volumes:
+      - /any/path/here:/config
+      - /desired/config/path:/downloads
+      - /etc/localtime:/etc/localtime:ro
+      - /path/to/downloaded/openvpnfile/default.ovpn:/etc/openvpn/custom/default.ovpn
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
